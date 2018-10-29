@@ -1,0 +1,39 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.6.RELEASE'
+	}
+	repositories {
+		mavenCentral()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'org.algoritmed.amlis001'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation('org.springframework.boot:spring-boot-starter-web')
+	implementation('org.springframework.boot:spring-boot-starter-thymeleaf')
+	implementation('org.springframework.boot:spring-boot-starter-jdbc')
+	implementation('org.springframework.boot:spring-boot-starter-security')
+	runtimeOnly('com.h2database:h2')
+	runtimeOnly('org.postgresql:postgresql')
+	testImplementation('org.springframework.boot:spring-boot-starter-test')
+	testImplementation('org.springframework.security:spring-security-test')
+	
+	compile 'org.webjars:font-awesome:4.7.0'
+	compile 'org.webjars:angularjs:1.7.5'
+	
+}
