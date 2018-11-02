@@ -1,13 +1,13 @@
 app.controller('myCtrl', function($scope, $http, $interval, $filter) {
 	initApp($scope, $http)
 
-	$scope.pageVar.pageName = 'page template'
-	$scope.pageVar.pageParent = {}
-	$scope.pageVar.pageParent.url = '/'
-	$scope.pageVar.pageParent.params = function(){
+	$scope.app.pageName = 'page template'
+	$scope.app.pageParent = {}
+	$scope.app.pageParent.url = '/'
+		$scope.app.pageParent.params = function(){
 		return "?tableId=" +
-				$scope.request.parameters.jsonId +
-				""
+		$scope.request.parameters.jsonId +
+		""
 	}
 	
 })

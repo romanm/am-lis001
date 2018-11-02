@@ -35,5 +35,5 @@ dependencies {
 	
 	compile 'org.webjars:font-awesome:4.7.0'
 	compile 'org.webjars:angularjs:1.7.5'
-	
+	compile 'org.apache.poi:poi-ooxml:4.0.0'
 }

@@ -1,12 +1,42 @@
 var app = angular.module('myApp', ['ngSanitize']);
 var initApp = function($scope, $http){
 	console.log('initApp')
-	$scope.pageVar = {}
 	build_request($scope)
 	exe_fn = new Exe_fn($scope, $http);
 	
+	$scope.app = {}
+	$scope.app.colortheme = {}
+	console.log($scope.app)
+	$scope.app.colortheme.changeTheme = function(){
+		this.theme = (this.theme == 'night')?'day':'night'
+		var data = $scope.app.site_config
+		data.colortheme
+			= $scope.app.colortheme
+		console.log(data)
+		exe_fn.httpPost({ url:'/url_file_write',
+			then_fn:function(response) {
+				console.log(response.data)
+			},
+			data:data,
+		})
+	}
 	
-	
+	exe_fn.httpGet({
+		url:'/r/principal',
+		then_fn:function(response){
+			$scope.principal = response.data.m
+			console.log($scope.principal)
+			console.log(response.data)
+			$scope.app.site_config
+				= response.data.config
+			if($scope.app.site_config)
+				if($scope.app.site_config.colortheme){
+					$scope.app.colortheme.theme
+						= $scope.app.site_config.colortheme.theme
+					console.log($scope.app.site_config.colortheme)
+				}
+		},
+	})
 	
 	$scope.highlight = function(text, search){
 		if (!text) return

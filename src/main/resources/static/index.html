@@ -13,9 +13,10 @@
 <script src="/webjars/angularjs/1.7.5/i18n/angular-locale_uk.js"></script>
 <script src="/f/js/am-lis001.js"></script>
 <script src="/f/index.js"></script>
-<body class="{{pageVar.colortheme.theme=='night'?'w3-dark-grey':''}}">
+<body class="{{app.colortheme.theme=='night'?'w3-dark-grey':''}}">
 	<div
-		class="w3-row {{pageVar.colortheme.theme=='night'?'w3-blue-grey':'w3-light-grey'}}">
+		class="w3-row {{app.colortheme.theme=='night'?'w3-blue-grey':'w3-light-grey'}}"
+		>
 		<div class="w3-col  w3-container" style="width: 20%">
 			<span ng-include="'/f/c4/a-home.html'" ></span>
 		</div>
